@@ -16,5 +16,9 @@ namespace DataAccess.Data
         {
             options.UseSqlServer("Server=ATMECSBLRLT-262\\MSSQLSERVER1;Database=Interview;TrustServerCertificate=True;Trusted_Connection=True");
         }
+        protected override void OnModelCreating (ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Book>().Property(b => b.Price).HasPrecision(10,5);
+        }
     }
 }
