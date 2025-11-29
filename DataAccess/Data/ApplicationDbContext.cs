@@ -15,6 +15,8 @@ namespace DataAccess.Data
         public DbSet<Author> Authors { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
+
+        public DbSet<BookDetail> BookDetails { get; set; }
         protected override void OnConfiguring (DbContextOptionsBuilder options)
         {
             options.UseSqlServer("Server=ATMECSBLRLT-262\\MSSQLSERVER1;Database=Interview;TrustServerCertificate=True;Trusted_Connection=True");
