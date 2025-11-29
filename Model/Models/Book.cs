@@ -19,6 +19,7 @@ namespace Model.Models
         public decimal Price { get; set; }
         [NotMapped]
         public string PriceRange { get; set; }
+        public BookDetail BookDetail { get; set; }
 
     }
 }
