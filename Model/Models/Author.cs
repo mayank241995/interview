@@ -25,7 +25,7 @@ namespace Model.Models
                 return $"{FirstName} {LastName}";
             }  
         }
-        public List<Book> Books { get; set; }
+        public List<BookAuthorMap> Books { get; set; }
 
     }
 }

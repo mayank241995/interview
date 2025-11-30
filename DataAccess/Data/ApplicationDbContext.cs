@@ -17,6 +17,7 @@ namespace DataAccess.Data
         public DbSet<SubCategory> SubCategories { get; set; }
 
         public DbSet<BookDetail> BookDetails { get; set; }
+        
         protected override void OnConfiguring (DbContextOptionsBuilder options)
         {
             options.UseSqlServer("Server=ATMECSBLRLT-262\\MSSQLSERVER1;Database=Interview;TrustServerCertificate=True;Trusted_Connection=True");
@@ -25,6 +26,10 @@ namespace DataAccess.Data
         {
             // setting precision for Price property in Book entity
             modelBuilder.Entity<Book>().Property(b => b.Price).HasPrecision(10, 5);
+
+            //composite key
+            modelBuilder.Entity<BookAuthorMap>().HasKey(b => new{ b.Author_Id,b.IDBook});
+
             //creating entry
             modelBuilder.Entity<Book>().HasData(
                 new Book
