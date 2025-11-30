@@ -65,8 +65,6 @@ namespace DataAccess.Data
                    Publisher_Id = 3,Location="New York",Name = "pub 2 jhon"
                }
             );
-
-
         }
     }
 }
