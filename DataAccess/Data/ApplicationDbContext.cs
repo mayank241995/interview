@@ -19,6 +19,7 @@ namespace DataAccess.Data
         public DbSet<BookDetail> BookDetails { get; set; }
         public DbSet<Fluent_BookDetail> BookDetail_fluent { get; set; }
         
+        public DbSet<Fluent_Book> fluent_Books { get; set; }
         protected override void OnConfiguring (DbContextOptionsBuilder options)
         {
             options.UseSqlServer("Server=ATMECSBLRLT-262\\MSSQLSERVER1;Database=Interview;TrustServerCertificate=True;Trusted_Connection=True");
@@ -32,6 +33,13 @@ namespace DataAccess.Data
 
             //required property using fluent API
             modelBuilder.Entity<Fluent_BookDetail>().Property(u=>u.NumberOfChapters).IsRequired();
+
+            //max length using fluent API
+            modelBuilder.Entity<Fluent_Book>().Property(o=>o.ISBN).HasMaxLength(50).IsRequired();
+            //set primary key using fluent API
+            modelBuilder.Entity<Fluent_Book>().HasKey(o => o.IDBook);
+
+            modelBuilder.Entity<Fluent_Book>().Ignore(o => o.PriceRange);
 
             //set primary key using fluent API
             modelBuilder.Entity<Fluent_BookDetail>().HasKey(u => u.BookDetail_Id);
