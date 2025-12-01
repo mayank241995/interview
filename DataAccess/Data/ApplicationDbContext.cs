@@ -21,6 +21,9 @@ namespace DataAccess.Data
         public DbSet<Fluent_Book> fluent_Books { get; set; }
         public DbSet<Fluent_Author> fluent_Authors { get; set; }
         public DbSet<Fluent_Publisher> fluent_Publishers { get; set; }
+
+        public DbSet<BookAuthorMap> BookAuthorMaps { get; set; }
+        public DbSet<Fluent_BookAuthorMap> Fluent_BookAuthorMaps { get; set; }
         protected override void OnConfiguring (DbContextOptionsBuilder options)
         {
             options.UseSqlServer("Server=ATMECSBLRLT-262\\MSSQLSERVER1;Database=Interview;TrustServerCertificate=True;Trusted_Connection=True");
