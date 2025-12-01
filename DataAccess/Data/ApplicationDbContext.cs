@@ -17,6 +17,7 @@ namespace DataAccess.Data
         public DbSet<SubCategory> SubCategories { get; set; }
 
         public DbSet<BookDetail> BookDetails { get; set; }
+        public DbSet<Fluent_BookDetail> BookDetail_fluent { get; set; }
         
         protected override void OnConfiguring (DbContextOptionsBuilder options)
         {
@@ -24,6 +25,17 @@ namespace DataAccess.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<Fluent_BookDetail>().ToTable("fluent_BookDetail");
+
+            modelBuilder.Entity<Fluent_BookDetail>().Property(u => u.NumberOfChapters).HasColumnName("NoOfChapter");
+
+            //required property using fluent API
+            modelBuilder.Entity<Fluent_BookDetail>().Property(u=>u.NumberOfChapters).IsRequired();
+
+            //set primary key using fluent API
+            modelBuilder.Entity<Fluent_BookDetail>().HasKey(u => u.BookDetail_Id);
+
             // setting precision for Price property in Book entity
             modelBuilder.Entity<Book>().Property(b => b.Price).HasPrecision(10, 5);
 
