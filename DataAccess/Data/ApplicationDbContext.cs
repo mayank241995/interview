@@ -18,8 +18,9 @@ namespace DataAccess.Data
 
         public DbSet<BookDetail> BookDetails { get; set; }
         public DbSet<Fluent_BookDetail> BookDetail_fluent { get; set; }
-        
         public DbSet<Fluent_Book> fluent_Books { get; set; }
+        public DbSet<Fluent_Author> fluent_Authors { get; set; }
+        public DbSet<Fluent_Publisher> fluent_Publishers { get; set; }
         protected override void OnConfiguring (DbContextOptionsBuilder options)
         {
             options.UseSqlServer("Server=ATMECSBLRLT-262\\MSSQLSERVER1;Database=Interview;TrustServerCertificate=True;Trusted_Connection=True");
@@ -49,6 +50,19 @@ namespace DataAccess.Data
 
             //composite key
             modelBuilder.Entity<BookAuthorMap>().HasKey(b => new{ b.Author_Id,b.IDBook});
+            //primary key
+            modelBuilder.Entity<Fluent_Author>().HasKey(o => o.Author_Id);
+            // required and maxleght
+            modelBuilder.Entity<Fluent_Author>().Property(o=>o.FirstName).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<Fluent_Author>().Property(o=>o.LastName).IsRequired();
+            //not mapped 
+            modelBuilder.Entity<Fluent_Author>().Ignore(o => o.FullName);
+
+            modelBuilder.Entity<Fluent_Publisher>().HasKey(o => o.Publisher_Id);
+
+            modelBuilder.Entity<Fluent_Publisher>().Property(o=>o.Name).IsRequired();
+
+
 
             //creating entry
             modelBuilder.Entity<Book>().HasData(
