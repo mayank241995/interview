@@ -34,6 +34,11 @@ namespace DataAccess.Data
 
             //required property using fluent API
             modelBuilder.Entity<Fluent_BookDetail>().Property(u=>u.NumberOfChapters).IsRequired();
+            //set primary key using fluent API
+            modelBuilder.Entity<Fluent_BookDetail>().HasKey(u => u.BookDetail_Id);
+
+            modelBuilder.Entity<Fluent_BookDetail>().HasOne(o => o.Book).WithOne(b => b.BookDetail)
+                .HasForeignKey<Fluent_BookDetail>(u=>u.IDBook);
 
             //max length using fluent API
             modelBuilder.Entity<Fluent_Book>().Property(o=>o.ISBN).HasMaxLength(50).IsRequired();
@@ -42,8 +47,7 @@ namespace DataAccess.Data
 
             modelBuilder.Entity<Fluent_Book>().Ignore(o => o.PriceRange);
 
-            //set primary key using fluent API
-            modelBuilder.Entity<Fluent_BookDetail>().HasKey(u => u.BookDetail_Id);
+           
 
             // setting precision for Price property in Book entity
             modelBuilder.Entity<Book>().Property(b => b.Price).HasPrecision(10, 5);

@@ -17,7 +17,7 @@ namespace Model.Models
         public decimal Price { get; set; }
         public string PriceRange { get; set; }
         
-       // public Fluent_BookDetail BookDetail { get; set; }
+        public Fluent_BookDetail BookDetail { get; set; }
        // [ForeignKey("Publisher")]
      //   public int Publisher_Id { get; set; }
         //public Fluent_Publisher Publisher { get; set; }

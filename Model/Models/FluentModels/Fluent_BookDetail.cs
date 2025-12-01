@@ -18,7 +18,7 @@ namespace Model.Models
         public string Weight { get; set; }
 
        // [ForeignKey("Book")]
-    //    public int IDBook { get; set; }
-        //public Fluent_Book Book { get; set; }
+         public int IDBook { get; set; }
+        public Fluent_Book Book { get; set; }
     }
 }
