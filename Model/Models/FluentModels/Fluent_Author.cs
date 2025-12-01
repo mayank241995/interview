@@ -23,7 +23,8 @@ namespace Model.Models
                 return $"{FirstName} {LastName}";
             }  
         }
-        //public List<Fluent_BookAuthorMap> Books { get; set; }
+        // public List<Fluent_Book> Books { get; set; }
+        public List<Fluent_BookAuthorMap> BookAuthorMap { get; set; }
 
     }
 }

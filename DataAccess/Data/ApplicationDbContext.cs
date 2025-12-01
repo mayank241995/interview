@@ -56,6 +56,16 @@ namespace DataAccess.Data
 
             //composite key
             modelBuilder.Entity<BookAuthorMap>().HasKey(b => new{ b.Author_Id,b.IDBook});
+
+            modelBuilder.Entity<Fluent_BookAuthorMap>().HasKey(b => new{ b.Author_Id,b.IDBook});
+
+            modelBuilder.Entity<Fluent_BookAuthorMap>().HasOne(u=>u.Book).WithMany(p=>p.BookAuthorMap).HasForeignKey(u=>u.IDBook);
+            modelBuilder.Entity<Fluent_BookAuthorMap>().HasOne(u=>u.Author).WithMany(p=>p.BookAuthorMap).HasForeignKey(u=>u.Author_Id);
+
+
+
+
+
             //primary key
             modelBuilder.Entity<Fluent_Author>().HasKey(o => o.Author_Id);
             // required and maxleght
