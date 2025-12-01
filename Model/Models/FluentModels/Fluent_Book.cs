@@ -19,8 +19,8 @@ namespace Model.Models
         
         public Fluent_BookDetail BookDetail { get; set; }
        // [ForeignKey("Publisher")]
-     //   public int Publisher_Id { get; set; }
-        //public Fluent_Publisher Publisher { get; set; }
+        public int Publisher_Id { get; set; }
+        public Fluent_Publisher Publisher { get; set; }
 
         //public List<Fluent_BookAuthorMap> Authors { get; set; }
 

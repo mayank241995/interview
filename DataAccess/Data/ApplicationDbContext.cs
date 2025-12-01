@@ -36,9 +36,11 @@ namespace DataAccess.Data
             modelBuilder.Entity<Fluent_BookDetail>().Property(u=>u.NumberOfChapters).IsRequired();
             //set primary key using fluent API
             modelBuilder.Entity<Fluent_BookDetail>().HasKey(u => u.BookDetail_Id);
-
+            //one to one mapping using fluent API
             modelBuilder.Entity<Fluent_BookDetail>().HasOne(o => o.Book).WithOne(b => b.BookDetail)
                 .HasForeignKey<Fluent_BookDetail>(u=>u.IDBook);
+            //one to many mapping using fluent API
+            modelBuilder.Entity<Fluent_Book>().HasOne(o=>o.Publisher).WithMany(b=>b.Books).HasForeignKey(u => u.Publisher_Id);
 
             //max length using fluent API
             modelBuilder.Entity<Fluent_Book>().Property(o=>o.ISBN).HasMaxLength(50).IsRequired();
