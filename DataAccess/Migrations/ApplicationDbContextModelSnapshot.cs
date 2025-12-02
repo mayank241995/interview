@@ -48,7 +48,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Author_Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
                 });
 
             modelBuilder.Entity("Model.Models.Book", b =>
@@ -78,7 +78,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("Publisher_Id");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
 
                     b.HasData(
                         new
@@ -135,7 +135,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("IDBook");
 
-                    b.ToTable("BookAuthorMaps");
+                    b.ToTable("BookAuthorMaps", (string)null);
                 });
 
             modelBuilder.Entity("Model.Models.BookDetail", b =>
@@ -164,7 +164,7 @@ namespace DataAccess.Migrations
                     b.HasIndex("IDBook")
                         .IsUnique();
 
-                    b.ToTable("BookDetails");
+                    b.ToTable("BookDetails", (string)null);
                 });
 
             modelBuilder.Entity("Model.Models.Category", b =>
@@ -182,7 +182,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Model.Models.Fluent_Author", b =>
@@ -211,7 +211,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Author_Id");
 
-                    b.ToTable("fluent_Authors");
+                    b.ToTable("fluent_Authors", (string)null);
                 });
 
             modelBuilder.Entity("Model.Models.Fluent_Book", b =>
@@ -240,7 +240,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("Publisher_Id");
 
-                    b.ToTable("fluent_Books");
+                    b.ToTable("fluent_Books", (string)null);
                 });
 
             modelBuilder.Entity("Model.Models.Fluent_BookAuthorMap", b =>
@@ -255,7 +255,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("IDBook");
 
-                    b.ToTable("Fluent_BookAuthorMaps");
+                    b.ToTable("Fluent_BookAuthorMaps", (string)null);
                 });
 
             modelBuilder.Entity("Model.Models.Fluent_BookDetail", b =>
@@ -305,7 +305,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Publisher_Id");
 
-                    b.ToTable("fluent_Publishers");
+                    b.ToTable("fluent_Publishers", (string)null);
                 });
 
             modelBuilder.Entity("Model.Models.Publisher", b =>
@@ -326,7 +326,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Publisher_Id");
 
-                    b.ToTable("Publishers");
+                    b.ToTable("Publishers", (string)null);
 
                     b.HasData(
                         new
@@ -364,7 +364,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("SubCategory_Id");
 
-                    b.ToTable("SubCategories");
+                    b.ToTable("SubCategories", (string)null);
                 });
 
             modelBuilder.Entity("Model.Models.Book", b =>
