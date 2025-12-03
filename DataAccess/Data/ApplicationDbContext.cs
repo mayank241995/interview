@@ -1,5 +1,6 @@
 ﻿using DataAccess.FluentConfig;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Model.Models;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,8 @@ namespace DataAccess.Data
         public DbSet<Fluent_BookAuthorMap> Fluent_BookAuthorMaps { get; set; }
         protected override void OnConfiguring (DbContextOptionsBuilder options)
         {
-            options.UseSqlServer("Server=ATMECSBLRLT-262\\MSSQLSERVER1;Database=Interview;TrustServerCertificate=True;Trusted_Connection=True");
+            options.UseSqlServer("Server=ATMECSBLRLT-262\\MSSQLSERVER1;Database=Interview;TrustServerCertificate=True;Trusted_Connection=True")
+                .LogTo(Console.WriteLine, new[] {DbLoggerCategory.Database.Command.Name},LogLevel.Information);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
