@@ -15,8 +15,17 @@ Console.WriteLine("Hello, World!");
 //        context.Database.Migrate();
 //    }
 //}
-GetAllBooks();
+//GetAllBooks();
 //AddBookToDb();
+GetBook();
+
+void GetBook()
+{
+    using var context= new ApplicationDbContext();
+   // Book b=context.Books.First();
+   var b=context.fluent_Books.FirstOrDefault();
+    Console.WriteLine($"Bookid : {b.IDBook} Title : {b.Title} Price : {b.Price}");
+}
 
 void GetAllBooks()
 {
