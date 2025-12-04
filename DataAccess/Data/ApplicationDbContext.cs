@@ -34,7 +34,7 @@ namespace DataAccess.Data
         protected override void OnConfiguring (DbContextOptionsBuilder options)
         {
             //options.UseSqlServer("Server=ATMECSBLRLT-262\\MSSQLSERVER1;Database=Interview;TrustServerCertificate=True;Trusted_Connection=True")
-            //    .LogTo(Console.WriteLine, new[] {DbLoggerCategory.Database.Command.Name},LogLevel.Information);
+            //   .LogTo(Console.WriteLine, new[] {DbLoggerCategory.Database.Command.Name},LogLevel.Information);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
