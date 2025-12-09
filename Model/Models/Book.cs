@@ -23,7 +23,7 @@ namespace Model.Models
         public BookDetail BookDetail { get; set; }
         [ForeignKey("Publisher")]
         public int Publisher_Id { get; set; }
-        public Publisher Publisher { get; set; }
+        public Publisher ?Publisher { get; set; }
 
         public List<BookAuthorMap> Authors { get; set; }
 
